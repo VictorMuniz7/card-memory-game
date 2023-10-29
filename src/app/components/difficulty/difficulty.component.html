@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Select a Difficulty</h1>
+  <div class="difficulties">
+    <form [formGroup]="form" (change)="setDifficulty()">
+      <div class="box">
+        <input type="radio" name="difficulty" id="easy" value="easy" formControlName="difficulty">
+        <label for="easy"><span><i class="fa-solid fa-infinity"></i></span> Easy</label>
+      </div>
+      <div class="box">
+        <input type="radio" name="difficulty" id="normal" value="normal" formControlName="difficulty">
+        <label for="normal"><span><i class="fa-solid fa-infinity"></i></span> Normal</label>
+      </div>
+      <div class="box">
+        <input type="radio" name="difficulty" id="hard" value="hard" formControlName="difficulty">
+        <label for="hard"><span><i class="fa-solid fa-infinity"></i></span> Hard</label>
+      </div>
+      <div class="box">
+        <input type="radio" name="difficulty" id="hell" value="hell" formControlName="difficulty">
+        <label for="hell"><span><i class="fa-solid fa-infinity"></i></span> Hell</label>
+      </div>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,176 @@
+.container{
+  width: 95%;
+  height: 60vh;
+  background: rgb(195,246,235);
+  background: linear-gradient(115deg, rgba(195,246,235,1) 18%, rgba(182,222,213,1) 42%, rgba(237,242,241,1) 72%, rgba(230,255,247,1) 85%);
+  margin: 4em auto;
+  box-shadow: inset 0 0 6px 10px rgba(#464545, 0.4), 0 0 15px 20px rgba(#fff, 0.05);
+  display: grid;
+  grid-template-columns: var(--columns-mobile);
+  grid-template-rows: var(--rows-mobile);
+  gap: .5em;
+  padding: 1em;
+  position: relative;
+}
+
+
+.card{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.front, .back{
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front{
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+
+  img{
+    width: 40%;
+  }
+}
+
+.back{
+  background-image: url('../../../assets/card-bg.png');
+  background-size: cover;
+  background-position: 50% 20%;
+  border: .1em solid #000;
+}
+
+#startBtn{
+  width: 50%;
+  height: 2em;
+  position: absolute;
+  top: -2.6em;
+  left: 25%;
+  font-size: 1.2em;
+  outline: 0;
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 7px 7px 10px rgba(#000, 0.3), -7px -7px 10px rgba(#fff, 0.2) ;
+
+  &:active{
+    transform: translate(2px, 2px);
+
+  }
+}
+
+.loser-screen, .winner-screen{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+
+  p{
+    font-size: 4em;
+  }
+
+  button{
+    width: 6em;
+    height: 2em;
+    font-size: 1.4em;
+    cursor: pointer;
+    border: .2em solid #000;
+    outline: 0;
+    background: transparent;
+  }
+}
+
+.winner-screen{
+  background-color: rgba(#50EC88, 0.6);
+}
+
+.loser-screen{
+  background-color: rgba(#EF4335, 0.6);
+
+  p{
+    color: #fff;
+  }
+
+  button{
+    color: #fff;
+    border-color: #fff;
+  }
+}
+
+@media screen and (min-width: 45em) {
+
+  .container{
+    grid-template-columns: var(--columns-desktop);
+    grid-template-rows: var(--rows-desktop);
+  }
+
+  .front{
+
+    img{
+      width: 50%;
+    }
+  }
+
+
+}
+
+@media screen and (min-width: 68em) {
+
+  #startBtn{
+    width: 30%;
+    left: 35%;
+  }
+}
+
+@media screen and (min-width: 87em) {
+
+  .container{
+    width: 70%;
+    gap: 1em;
+    padding: 2em;
+  }
+
+  .back{
+    border: .25em solid #000;
+  }
+
+  .loser-screen, .winner-screen{
+    p{
+      font-size: 6em;
+    }
+
+    button{
+      width: 7em;
+      height: 2.5em;
+      font-size: 1.8em;
+    }
+  }
+}
+
+@media screen and (min-width: 94em) {
+  .front{
+    img{
+      width: 35%;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card" *ngFor="let i of getCardArray(numberOfCards); let index = index"
+  (click)="validate(cardInner, img.src)"
+  (click)="isGameRunning ? cardInner.style.transform = 'rotateY(180deg)' : null"
+   >
+    <div class="card-inner" #cardInner>
+      <div class="front">
+        <img [src]="currentImages[index]" alt="Icon" #img>
+      </div>
+      <div class="back"></div>
+    </div>
+  </div>
+  <button id="startBtn" (click)="startGame()" [disabled]="isRunning">Start Game</button>
+
+  <div class="loser-screen" *ngIf="showLoserScreen">
+    <p>You Lose!</p>
+    <button (click)="playAgain()">Play Again</button>
+  </div>
+
+  <div class="winner-screen" *ngIf="showWinnerScreen">
+    <p>You Win!</p>
+    <button (click)="playAgain()">Play Again</button>
+  </div>
+</div>
+
+
+
+
