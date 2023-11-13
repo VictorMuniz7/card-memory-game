@@ -140,7 +140,11 @@ export class GameComponent implements OnInit{
 
 
   startGame(){
-    this.isRunning = true
+    this.gameService.setIsRunning(true)
+
+    this.gameService.isRunning$.subscribe((data) => {
+      this.isRunning = data
+    })
 
     this.setImagesToUse()
     let allCards = document.querySelectorAll<HTMLElement>('.card-inner')
@@ -182,6 +186,7 @@ export class GameComponent implements OnInit{
     this.showLoserScreen = false
     this.showWinnerScreen = false
     this.isGameRunning = false
+    this.gameService.setIsRunning(false)
     this.isRunning = false
     this.totalHits = 0
     this.selectedImage1 = ''

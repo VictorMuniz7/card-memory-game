@@ -13,10 +13,16 @@ export class DifficultyComponent {
     difficulty: 'easy'
   })
 
+  isRunning: boolean = false
+
   constructor(
     private formBuilder: FormBuilder,
     private gameService: GameService
-  ){}
+  ){
+    this.gameService.isRunning$.subscribe((data) => {
+      this.isRunning = data
+    })
+  }
 
   setDifficulty(){
     if(this.form.value.difficulty)
